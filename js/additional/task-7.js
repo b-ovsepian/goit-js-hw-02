@@ -2,12 +2,14 @@
 // Написати ф-ю яка приймає масив і видаляє звідти всі унікальні елементи
 
 const nonUniqueElements = function (array) {
-  for (let i = 0; i < array.length; i++) {
-    let element = array.splice(i, 1);
-    if (array.includes(element[0])) {
-      array.splice(i, 0, element[0]);
-    } else {
-      i = -1;
+  if (array.length > 1) {
+    for (let i = 0; i < array.length; i++) {
+      let element = array.splice(i, 1);
+      if (array.includes(element[0])) {
+        array.splice(i, 0, element[0]);
+      } else {
+        i = -1;
+      }
     }
   }
   return console.log(array);
